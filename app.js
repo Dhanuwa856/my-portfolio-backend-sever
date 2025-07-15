@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 
 import connectDB from "./config/db.js";
 import userRouter from "./routes/userRouter.js";
+import projectRouter from "./routes/projectRouter.js";
 
 // Load environment variables
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(express.json());
 
 // API routes
 app.use("/api/user", userRouter);
+app.use("/api/projects", projectRouter);
 
 // Root route (optional)
 app.get("/", (req, res) => {
