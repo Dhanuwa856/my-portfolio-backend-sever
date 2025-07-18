@@ -9,6 +9,10 @@ const projectSchema = new mongoose.Schema(
     tags: [String],
     mainImage: { type: String, required: true },
     screenshots: [String],
+    category: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

@@ -3,7 +3,9 @@ import multer from "multer";
 
 import {
   createProject,
+  deleteProject,
   getAllProjects,
+  updateProject,
 } from "../controllers/projectController.js";
 import { protectRoute } from "../middleware/uthMiddleware.js";
 
@@ -23,5 +25,15 @@ projectRouter.post(
   ]),
   createProject
 );
+projectRouter.put(
+  "/:id",
+  protectRoute,
+  upload.fields([
+    { name: "mainImage", maxCount: 1 },
+    { name: "screenshots", maxCount: 10 },
+  ]),
+  updateProject
+);
+projectRouter.delete("/:id", protectRoute, deleteProject);
 
 export default projectRouter;
